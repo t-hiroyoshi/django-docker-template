@@ -1,0 +1,4 @@
+Django>=1.11,<2.0
+uwsgi
+psycopg2
+python-memcached

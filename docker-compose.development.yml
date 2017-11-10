@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=app.settings
+      - DJANGO_SECRET_KEY=aaaaaaaaaaaaaaaa
+      - DJANGO_DEBUG=True
+    depends_on:
+      - db
+    restart: always
+    command: tail -f /dev/null
